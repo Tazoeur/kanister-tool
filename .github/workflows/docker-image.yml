@@ -32,6 +32,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/kanister-tools:latest
-            ghcr.io/${{ github.repository_owner }}/kanister-tools:${{ github.run_number }}
+            ghcr.io/${{ toLower(github.repository_owner) }}/kanister-tools:latest
+            ghcr.io/${{ toLower(github.repository_owner) }}/kanister-tools:${{ github.run_number }}
         
