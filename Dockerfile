@@ -1,12 +1,5 @@
-FROM alpine:3.22
+FROM ghcr.io/kanisterio/kanister-tools
 
-ENV packages="\
-	tar \
-	curl \
-	bash \
-	"
+RUN microdnf install tar
 
-RUN apk update && apk add $packages
-
-RUN curl https://raw.githubusercontent.com/kanisterio/kanister/master/scripts/get.sh | sed 's/shasum -a 256/sha256sum/g; s/"shasum"/sha256sum/g' | bash
 CMD ["bash"]
