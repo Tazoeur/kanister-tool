@@ -19,7 +19,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       
-    - name: lowercase github.repository
+    - name: lowercaseGithubRepository
       run: |
           echo "repository=${GITHUB_REPOSITORY@L}" >> $GITHUB_OUTPUT
 
@@ -36,6 +36,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ steps.lower-repo.outputs.repository }}/kanister-tools:latest
-            ghcr.io/${{ steps.lower-repo.outputs.repository }}/kanister-tools:${{ github.run_number }}
+            ghcr.io/${{ steps.lowercaseGithubRepository.outputs.repository }}/kanister-tools:latest
+            ghcr.io/${{ steps.lowercaseGithubRepository.outputs.repository }}/kanister-tools:${{ github.run_number }}
         
